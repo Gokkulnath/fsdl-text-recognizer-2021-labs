@@ -72,6 +72,14 @@ def main():
 
     if args.loss not in ('ctc', 'transformer'):
         lit_model = lit_models.BaseLitModel(model, args=args)
+    # Hide lines below until Lab 3
+    if args.loss == "ctc":
+        lit_model = lit_models.CTCLitModel(args=args, model=model)
+    # Hide lines above until Lab 3
+    # Hide lines below until Lab 4
+    if args.loss == "transformer":
+        lit_model = lit_models.TransformerLitModel(args=args, model=model)
+    # Hide lines above until Lab 4
 
     loggers = [pl.loggers.TensorBoardLogger("training/logs")]
 
